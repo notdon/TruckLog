@@ -1,0 +1,19 @@
+{% extends "core/base.html" %} {% block content %}
+<h1>{{ day }}</h1>
+
+<ul>
+    {% for muatan in object_list %}
+        <li>{{ muatan.date_added|date:"F j, Y" }}: {{ muatan.ritasi }}</li>
+    {% endfor %}
+</ul>
+
+<p>
+    {% if previous_day %}
+        Previous Day: {{ previous_day }}
+    {% endif %}
+    {% if previous_day and next_day %}--{% endif %}
+    {% if next_day %}
+        Next Day: {{ next_day }}
+    {% endif %}
+</p>
+{% endblock %}
